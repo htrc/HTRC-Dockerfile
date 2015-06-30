@@ -10,13 +10,17 @@ the deployment environments.
 ## How To Create a Data Volume Container
 
 ```
-$ docker create -v /dbdata --name dbdata training/postgres /bin/true
+$ docker create -v /hathitrustmnt/sharc/production/data:/data:ro --name sharc-data phusion/baseimage:0.9.16 /bin/true
 ```
+
+In the above command we assume we keep all the resources and configurations
+related to *production* stack under */hathitrustmnt/sharc/production/data* and
+we mount it to *sharc-data* container at */data*.
 
 ## How To Mount a Volume From Data Volume Container
 
 ```
-$ docker run -d --volumes-from dbdata --name db1 training/postgres
+$ docker run -d --volumes-from sharc-data --name idpandregistry htrc/postgres
 ```
 
 # Configuration Directory Hierarchy
