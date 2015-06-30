@@ -2,7 +2,7 @@
 
 Every container will have a data volume mounted at /data and all
 the configurations and resources should be loaded from there. Special data
-volume container (https://docs.docker.com/userguide/dockervolumes/)[https://docs.docker.com/userguide/dockervolumes/]
+volume container [https://docs.docker.com/userguide/dockervolumes/](https://docs.docker.com/userguide/dockervolumes/)
 will be used to keep the configuration consistent across different
 deployment environments. This container will be named 'sharc-data' across all
 the deployment environments.
