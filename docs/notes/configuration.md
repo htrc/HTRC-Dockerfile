@@ -39,3 +39,9 @@ data
 |
 |-- workset-builder
 ```
+
+# Service Discovery
+
+* http://blog.scottlowe.org/2015/03/06/running-own-docker-swarm-cluster/
+* http://blog.arungupta.me/docker-swarm-cluster-using-consul/
+* http://technologyconversations.com/2015/07/02/scaling-to-infinity-with-docker-swarm-docker-compose-and-consul-part-24-manually-deploying-services/
