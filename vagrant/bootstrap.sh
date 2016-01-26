@@ -12,9 +12,6 @@ gpgkey=https://yum.dockerproject.org/gpg
 EOF
 
 sudo yum -y update
-
 sudo yum -y install docker-engine
-
 sudo service docker start
-
 sudo usermod -aG docker vagrant
