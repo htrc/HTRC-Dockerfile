@@ -1,20 +1,13 @@
 # Base image
-FROM centos:7
+FROM phusion/baseimage
 
-MAINTAINER Data to Insight Center <d2i@indiana.edu>
+MAINTAINER HathiTrust Research Center <htrc-tech-help-l@list.indiana.edu>
+LABEL description="Ubuntu base image for the HathiTrust platform services"
 
-# Update DNS servers
-RUN echo "nameserver 8.8.8.8" >> /etc/resolve.conf
+# Add required tools and libraries
+RUN apt-get update && \
+    apt-get -y install wget bzip2 unzip && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-# Update the base system
-RUN yum -y update && yum -y clean all
-
-# Install wget
-RUN yum -y install wget
-
-# Install unzip
-RUN yum -y install unzip
-
-# Install dumb-init
-RUN wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.0.0/dumb-init_1.0.0_amd64
-RUN chmod +x /usr/local/bin/dumb-init
+ENV LANG=en_US.UTF-8 \
+    LC_CTYPE=en_US.UTF-8
