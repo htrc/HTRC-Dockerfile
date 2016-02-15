@@ -8,6 +8,7 @@ This image is using Debian Jessie as base and has the following capabilities:
  * Ant 1.9.6
  * Maven 3.3.9
  * SBT 0.13.9
+ * Git 2.1.4
 
 The Docker capability can be added by running the container in a way that mounts the host's Docker binary and socket on the container. Upon startup the Bamboo agent will automatically detect this capability.
 
