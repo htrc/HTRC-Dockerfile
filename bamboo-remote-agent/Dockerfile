@@ -12,7 +12,8 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
     apt-get -y install oracle-java7-installer oracle-java8-installer oracle-java8-set-default git --no-install-recommends && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/oracle-jdk*-installer && \
-    curl -fsSL https://raw.github.com/petervanderdoes/gitflow/develop/contrib/gitflow-installer.sh | bash -s install stable
+    curl -fsSL https://raw.github.com/petervanderdoes/gitflow/develop/contrib/gitflow-installer.sh | bash -s install stable && \
+    rm -rf gitflow
 
 WORKDIR /usr/local
 
