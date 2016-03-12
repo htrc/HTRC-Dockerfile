@@ -1,5 +1,5 @@
 # Base image
-FROM htrc/base
+FROM htrc/base:alpine
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
@@ -62,6 +62,6 @@ RUN apk upgrade --update && \
            /opt/jdk/jre/lib/plugin.jar \
            /tmp/* /var/cache/apk/* && \
     echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' >> /etc/nsswitch.conf
-    
+
 # Copying JAVA_HOME to /etc/profile.d to use in other scripts
 RUN echo "export JAVA_HOME=/opt/jdk" > /etc/profile.d/java-env.sh
