@@ -1,5 +1,5 @@
 # Base image
-FROM htrc/base:alpine
+FROM registry.docker.htrc.indiana.edu/htrc/base:alpine
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
