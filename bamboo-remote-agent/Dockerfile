@@ -23,7 +23,7 @@ ENV JAVA_HOME=/usr/lib/jvm/java-8-oracle \
     MAVEN_HOME=/usr/local/maven3 \
     ANT_VERSION=1.9.6 \
     ANT_HOME=/usr/local/ant \
-    BAMBOO_AGENT_VERSION=5.10.1.1 \
+    BAMBOO_AGENT_VERSION=5.10.3 \
     BAMBOO_HOME=/root/bamboo-agent-home \
     BAMBOO_BASEURL=https://bamboo.htrc.illinois.edu
 
