@@ -11,7 +11,7 @@ yum -y install jdk-8u131-linux-x64.rpm
 rm jdk-8u131-linux-x64.rpm
 
 # Define commonly used JAVA_HOME variable
-# ENV JAVA_HOME /usr/java/jdk1.7.0_79
+ENV JAVA_HOME /usr/java/default
 
 # Copying JAVA_HOME to /etc/profile.d to use in other scripts
-# RUN echo "export JAVA_HOME=/usr/java/jdk1.7.0_79" > /etc/profile.d/java-env.sh
+RUN echo "export JAVA_HOME=/usr/java/default" > /etc/profile.d/java-env.sh
