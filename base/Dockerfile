@@ -1,12 +1,12 @@
 # Base image
-FROM ubuntu:latest
+FROM centos:latest
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
-RUN apt -y update
+RUN yum -y update && yum -y clean all
 
 # Install wget
-RUN apt -y install wget
+RUN yum -y install wget
 
 # Install unzip
-RUN apt -y install unzip
+RUN yum -y install unzip
