@@ -1,16 +1,12 @@
 # Base image
-FROM centos:7
+FROM ubuntu:latest
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
-# Update DNS servers
-RUN echo "nameserver 8.8.8.8" >> /etc/resolve.conf
-
-# Update the base system
-RUN yum -y update && yum -y clean all
+RUN apt -y update
 
 # Install wget
-RUN yum -y install wget
+RUN apt -y install wget
 
 # Install unzip
-RUN yum -y install unzip
+RUN apt -y install unzip
