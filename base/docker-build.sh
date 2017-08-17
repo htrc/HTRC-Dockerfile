@@ -1,0 +1,1 @@
+docker build -t docker-registry.htrc.indiana.edu/base .

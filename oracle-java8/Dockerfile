@@ -1,5 +1,5 @@
 # Base image
-FROM htrc/base
+FROM docker-registry.htrc.indiana.edu/base
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
