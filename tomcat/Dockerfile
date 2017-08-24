@@ -25,4 +25,5 @@ RUN chown -R tomcat webapps/ work/ temp/ logs/
 USER tomcat
 
 EXPOSE 8080
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+#CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD sh /opt/tomcat/bin/catalina.sh start && tail -f /opt/tomcat/logs/catalina.out
