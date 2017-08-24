@@ -120,59 +120,10 @@
         <br>
 
                   <button type="submit">Sign In</button>
-<%
-String iec =
-        application.getInitParameter("IdentityManagementEndpointContextURL");
-if (StringUtils.isBlank(iec)) {
-    iec = IdentityUtil.getServerURL("/accountrecoveryendpoint", true, true);
-}
-%>
+
     <div class="link-group">
-      <%=iec%>
-        <%
-
-            String scheme = request.getScheme();
-            String serverName = request.getServerName();
-            int serverPort = request.getServerPort();
-            String uri = (String) request.getAttribute("javax.servlet.forward.request_uri");
-            String prmstr = (String) request.getAttribute("javax.servlet.forward.query_string");
-            String urlWithoutEncoding = scheme + "://" +serverName + ":" + serverPort + uri + "?" + prmstr;
-            String urlEncodedURL = URLEncoder.encode(urlWithoutEncoding, "UTF-8");
-
-            if (request.getParameter("relyingParty").equals("wso2.my.dashboard")) {
-                String identityMgtEndpointContext =
-                        application.getInitParameter("IdentityManagementEndpointContextURL");
-                if (StringUtils.isBlank(identityMgtEndpointContext)) {
-                    identityMgtEndpointContext = IdentityUtil.getServerURL("/accountrecoveryendpoint", true, true);
-                }
-
-
-                URL url = null;
-                HttpURLConnection httpURLConnection = null;
-
-                url = new URL(identityMgtEndpointContext + "/recoverpassword.do?callback="+Encode.forHtmlAttribute
-                        (urlEncodedURL ));
-                httpURLConnection = (HttpURLConnection) url.openConnection();
-                httpURLConnection.setRequestMethod("HEAD");
-                httpURLConnection.connect();
-                if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-        %>
-        <a id="passwordRecoverLink" href="<%=url%>">Forgot Password</a>
+        <a id="passwordRecoverLink" href="https://analytics.htrc.indiana.edu/passwordresetrequestpage">Forgot Password?</a> | <a id="usernameRecoverLink" href="https://analytics.htrc.indiana.edu/useridrequestpage">Forgot Username?</a>
     <%
-        }
-
-        url = new URL(identityMgtEndpointContext + "/recoverusername.do?callback="+Encode.forHtmlAttribute
-                (urlEncodedURL ));
-        httpURLConnection = (HttpURLConnection) url.openConnection();
-        httpURLConnection.setRequestMethod("HEAD");
-        httpURLConnection.connect();
-        if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-    %>
-         | <a id="usernameRecoverLink" href="<%=url%>">Forgot Username</a>
-    <%
-        }
-
-            }
          if (Boolean.parseBoolean(loginFailed) && errorCode.equals(IdentityCoreConstants.USER_ACCOUNT_NOT_CONFIRMED_ERROR_CODE) && request.getParameter("resend_username") == null) { %>
 
          | <a id="registerLink" href="login.do?resend_username=<%=Encode.forHtml(request.getParameter("failedUsername"))%>&<%=AuthenticationEndpointUtil.cleanErrorMessages(request.getQueryString())%>">Re-Send Confirmation E-mail</a>

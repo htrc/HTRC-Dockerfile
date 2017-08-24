@@ -37,7 +37,7 @@ RUN mkdir -p /usr/local/wso2is/repository/deployment/server/webapps/authenticati
 WORKDIR /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint
 RUN unzip /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint.war
 ADD *.jsp ./
-ADD is-htrc-theme.css .
+ADD is-htrc-theme.css ./css
 
 # Add mysql_connector to repository/components/dropins
 ADD mysql_connector_java_5.1.42_bin_1.0.0.jar /usr/local/wso2is/repository/components/dropins/

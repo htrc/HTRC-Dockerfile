@@ -1,0 +1,25 @@
+apply plugin: "java"
+repositories {
+    maven {
+        url "http://nexus.htrc.illinois.edu/content/groups/public/"
+    }
+}
+
+configurations.all {
+    transitive = false
+}
+
+configurations {
+    email
+}
+
+dependencies {
+    email "edu.indiana.d2i.htrc:email-validator:1.0.3-SNAPSHOT"
+}
+
+task copyWar(type: Copy) {
+    from configurations.email
+    into "/opt/tomcat/webapps"
+    include('email-validator-1.0.3-SNAPSHOT.war')
+    rename ('email-validator-1.0.3-SNAPSHOT.war', 'email-validator.war')
+}
