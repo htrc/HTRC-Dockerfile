@@ -42,6 +42,9 @@ ADD is-htrc-theme.css ./css
 # Add mysql_connector to repository/components/dropins
 ADD mysql_connector_java_5.1.42_bin_1.0.0.jar /usr/local/wso2is/repository/components/dropins/
 
+# Add wso2is backup and restore webapp
+ADD wso2br.war /usr/local/wso2is/repository/deployment/server/webapps/
+
 # Create directory to keep wso2is configurations and resources
 RUN mkdir -p /htrc/repository/wso2is
 

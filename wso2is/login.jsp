@@ -47,7 +47,10 @@
             idpAuthenticatorMapping = (Map<String, String>) request.getAttribute(Constants.IDP_AUTHENTICATOR_MAP);
         }
 
-        String errorMessage = "Authentication Failed! Please Retry";
+        String errorMessage = "<p>You have entered an invalid username or password.</p>" +
+                               "<p>Is this your first time logging in to the new HTRC Analytics interface?" +
+                               " You must reset your password using the “Forgot Password” link below.</p> " +
+                               "<p>If you have reset your password and still cannot log in, please contact htrc-help@hathitrust.org for assistance.</p>";
         String errorCode = "";
         if(request.getParameter(Constants.ERROR_CODE)!=null){
             errorCode = request.getParameter(Constants.ERROR_CODE) ;
@@ -56,9 +59,6 @@
 
         if (Boolean.parseBoolean(request.getParameter(Constants.AUTH_FAILURE))) {
             loginFailed = "true";
-            if (request.getParameter(Constants.AUTH_FAILURE_MSG) != null) {
-                errorMessage = resourceBundle.getString(request.getParameter(Constants.AUTH_FAILURE_MSG));
-            }
         }
     %>
     <%

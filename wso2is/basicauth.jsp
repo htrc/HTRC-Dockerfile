@@ -29,7 +29,18 @@
 <%@ page import="java.net.URLEncoder" %>
 <%@ page import="org.wso2.carbon.identity.application.authentication.endpoint.util.bean.ResendCodeRequestDTO" %>
 <%@ page import="org.wso2.carbon.identity.application.authentication.endpoint.util.bean.UserDTO" %>
-
+<div style="width: 460px; margin: auto;padding-top: 5%;"><div style="
+padding-left: 45px;
+    padding-right: 45px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background: white;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    color: #dc7729;
+    font-weight: bold;">
+<p style="
+line-height: 24px;">Welcome! Returning users signing into the new HTRC Analytics interface for the first time must reset their password using the "Forgot Password" link below.</p></div></div>
 <div class="login-page">
   <div class="form">
   <!-- <div class="htrc-logo"><img src="images/htrc-logo.png" width="100"></div> -->
@@ -90,7 +101,7 @@
     %>
 
     <% if (Boolean.parseBoolean(loginFailed)) { %>
-    <div class="alert alert-danger" id="error-msg"><%= Encode.forHtml(errorMessage) %>
+    <div class="alert alert-danger" id="error-msg"><%=errorMessage%>
     </div>
     <%}else if((Boolean.TRUE.toString()).equals(request.getParameter("authz_failure"))){%>
     <div class="alert alert-danger" id="error-msg">You are not authorized to login
