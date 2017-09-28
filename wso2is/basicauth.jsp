@@ -133,7 +133,7 @@ line-height: 24px;">Welcome! Returning users signing into the new HTRC Analytics
                   <button type="submit">Sign In</button>
 
     <div class="link-group">
-        <a id="passwordRecoverLink" href="https://analytics.htrc.indiana.edu/passwordresetrequestpage">Forgot Password?</a> | <a id="usernameRecoverLink" href="https://analytics.htrc.indiana.edu/useridrequestpage">Forgot Username?</a>
+        <a id="passwordRecoverLink" href="https://analytics.hathitrust.org/passwordresetrequestpage">Forgot Password?</a> | <a id="usernameRecoverLink" href="https://analytics.hathitrust.org/useridrequestpage">Forgot Username?</a>
     <%
          if (Boolean.parseBoolean(loginFailed) && errorCode.equals(IdentityCoreConstants.USER_ACCOUNT_NOT_CONFIRMED_ERROR_CODE) && request.getParameter("resend_username") == null) { %>
 
