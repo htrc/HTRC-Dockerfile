@@ -41,7 +41,7 @@
 <div class="logout-page">
   <div class="logout-message">
     <h3>You have successfully signed out from <span class="htrc-text">HathiTrust Research Center.</span></h3>
-    <p><a href="https://analytics.htrc.indiana.edu">HathiTrust Research Center</a> | <a href="https://www.hathitrust.org">HathiTrust Digital Library</a></p>
+    <p><a href="https://analytics.hathitrust.org">HathiTrust Research Center</a> | <a href="https://www.hathitrust.org">HathiTrust Digital Library</a></p>
   </div>
 </div>
 <div class="auth-footer">
