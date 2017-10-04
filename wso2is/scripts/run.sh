@@ -12,11 +12,17 @@ if [ -d /htrc/repository/wso2is/resources ]; then
 	ln -s /htrc/repository/wso2is/resources /usr/local/wso2is/repository/resources
 fi
 
-# Setting up custom resources
+# Setting up custom bin scripts
 if [ -d /htrc/repository/wso2is/bin ]; then
 	rm -r /usr/local/wso2is/bin
 	ln -s /htrc/repository/wso2is/bin /usr/local/wso2is/bin
 	chmod +x /usr/local/wso2is/bin/*.sh
+fi
+
+# Setting up custom authentication endpoint
+if [ -d /htrc/repository/wso2is/authenticationendpoint ]; then
+	rm -rf /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint*
+	ln -s /htrc/repository/wso2is/authenticationendpoint /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint
 fi
 
 # Starting WSO2 IS
