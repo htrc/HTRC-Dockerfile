@@ -32,15 +32,16 @@ RUN /opt/gradle/latest/bin/gradle copyWar
 # Create directory to keep registry extension configuration files
 RUN mkdir -p /etc/htrc/regex
 
-# Add customized web pages
-RUN mkdir -p /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint
-WORKDIR /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint
-RUN unzip /usr/local/wso2is/repository/deployment/server/webapps/authenticationendpoint.war
-ADD *.jsp ./
-ADD is-htrc-theme.css ./css
-
 # Add mysql_connector to repository/components/dropins
 ADD mysql_connector_java_5.1.42_bin_1.0.0.jar /usr/local/wso2is/repository/components/dropins/
+
+# Add wso2is backup and restore webapp
+ADD wso2br.war /usr/local/wso2is/repository/deployment/server/webapps/
+
+# Add newrelic
+ADD newrelic /usr/local/newrelic
+
+ENV JAVA_OPTS "-javaagent:/usr/local/newrelic/newrelic.jar -Dorg.apache.catalina.startup.ContextConfig.jarsToSkip=newrelic.jar -Dtomcat.util.scan.DefaultJarScanner.jarsToSkip=newrelic.jar" 
 
 # Create directory to keep wso2is configurations and resources
 RUN mkdir -p /htrc/repository/wso2is
