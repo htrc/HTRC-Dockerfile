@@ -3,6 +3,10 @@ FROM docker-registry.htrc.indiana.edu/java8
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
+RUN groupadd idp
+RUN useradd -s /bin/nologin -g idp -u 1488170 idp
+
+
 WORKDIR /opt
 
 # Download and install gradle
@@ -31,6 +35,7 @@ RUN /opt/gradle/latest/bin/gradle copyWar
 
 # Create directory to keep registry extension configuration files
 RUN mkdir -p /etc/htrc/regex
+RUN chown -R idp:idp /etc/htrc
 
 # Add mysql_connector to repository/components/dropins
 ADD mysql_connector_java_5.1.42_bin_1.0.0.jar /usr/local/wso2is/repository/components/dropins/
@@ -38,13 +43,13 @@ ADD mysql_connector_java_5.1.42_bin_1.0.0.jar /usr/local/wso2is/repository/compo
 # Add wso2is backup and restore webapp
 ADD wso2br.war /usr/local/wso2is/repository/deployment/server/webapps/
 
-# Add newrelic
-ADD newrelic /usr/local/newrelic
-
-ENV JAVA_OPTS "-javaagent:/usr/local/newrelic/newrelic.jar -Dorg.apache.catalina.startup.ContextConfig.jarsToSkip=newrelic.jar -Dtomcat.util.scan.DefaultJarScanner.jarsToSkip=newrelic.jar" 
-
 # Create directory to keep wso2is configurations and resources
 RUN mkdir -p /htrc/repository/wso2is
+RUN chown -R idp:idp /htrc
+
+RUN chown -R idp:idp /opt/wso2is-5.3.0
+
+USER idp
 
 EXPOSE 9443
 
