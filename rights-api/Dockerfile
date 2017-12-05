@@ -2,7 +2,7 @@ FROM 		docker-registry.htrc.indiana.edu/tomcat9
 
 MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
-# tomcat9 sets USER to tomcat, and pwd to /opt/tomcat
+# tomcat9 sets USER to tomcat, and WORKDIR to /opt/tomcat
 
 USER root
 
