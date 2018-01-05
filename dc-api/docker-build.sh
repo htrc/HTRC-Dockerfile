@@ -1,2 +1,2 @@
 #!/bin/bash
-docker build -t docker-registry.htrc.indiana.edu/dc-api .
+docker build  --no-cache -t docker-registry.htrc.indiana.edu/dc-api:dev .

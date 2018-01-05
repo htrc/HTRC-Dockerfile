@@ -14,12 +14,12 @@ configurations {
 }
 
 dependencies {
-    dcapi "edu.indiana.d2i.sloan:sloan-ws:1.3-SNAPSHOT"
+    dcapi "edu.indiana.d2i.sloan:sloan-ws:1.4-SNAPSHOT"
 }
 
 task copyWar(type: Copy) {
     from configurations.dcapi
     into "/opt/tomcat/webapps"
-    include('sloan-ws-1.3-SNAPSHOT.war')
-    rename ('sloan-ws-1.3-SNAPSHOT.war', 'sloan-ws.war')
+    include('sloan-ws-1.4-SNAPSHOT.war')
+    rename ('sloan-ws-1.4-SNAPSHOT.war', 'sloan-ws.war')
 }
