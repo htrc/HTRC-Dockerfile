@@ -5,12 +5,14 @@ MAINTAINER Data to Insight Center <d2i@indiana.edu>
 WORKDIR /opt
 
 ENV TOMCAT_MAJOR 9
-ENV TOMCAT_VERSION 9.0.1
+ENV TOMCAT_VERSION 9.0.7
 
 # https://issues.apache.org/jira/browse/INFRA-8753?focusedCommentId=14735394#comment-14735394
 ENV TOMCAT_TGZ_URL https://www.apache.org/dyn/closer.cgi?action=download&filename=tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 RUN groupadd tomcat
+
+#set htrcprod uid to user in the container
 RUN useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat -u 1488170 tomcat
 RUN wget -O tomcat.tar.gz "$TOMCAT_TGZ_URL"
 
@@ -21,6 +23,7 @@ RUN chgrp -R tomcat /opt/tomcat
 RUN chmod -R g+r conf
 RUN chmod g+x conf
 RUN chown -R tomcat webapps/ work/ temp/ logs/
+RUN chmod -R 644 logs/
 
 USER tomcat
 
