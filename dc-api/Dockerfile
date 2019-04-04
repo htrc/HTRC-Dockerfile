@@ -4,7 +4,7 @@ MAINTAINER Data to Insight Center <d2i@indiana.edu>
 
 USER root
 
-# accept the agent war version as an argument
+# accept the dcapi war version as an argument
 ARG VERSION
 
 # environment variables

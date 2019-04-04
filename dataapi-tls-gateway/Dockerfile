@@ -22,4 +22,6 @@ RUN mkdir -p /etc/nginx/ssl
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
 COPY ./conf.d /etc/nginx/conf.d
+
+# Add necessary SSL certs into ./ssl directory
 COPY ./ssl /etc/nginx/ssl
