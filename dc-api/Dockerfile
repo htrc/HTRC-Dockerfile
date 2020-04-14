@@ -15,7 +15,7 @@ ENV TOMCAT_DIR=/opt/tomcat
 
 WORKDIR /opt
 
-# download the agent war from the HTRC nexus repo and place it in the
+# download the DCAPI war from the HTRC nexus repo and place it in the
 # appropriate tomcat directory
 RUN \
   if [[ $VERSION == *"SNAPSHOT"* ]]; then REPO=snapshots; else REPO=releases; fi && \
